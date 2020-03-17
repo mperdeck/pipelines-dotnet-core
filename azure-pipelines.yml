@@ -30,9 +30,9 @@ steps:
 - task: ArchiveFiles@2
   displayName: 'Archive WebApp'
   inputs:
-    rootFolderOrFile: pipelines-dotnet-core\bin\Release\netcoreapp2.2\publish
+    rootFolderOrFile: pipelines-dotnet-core/bin/Release/netcoreapp2.2/publish
     includeRootFolder: false
-    archiveFile: pipelines-dotnet-core\bin\Release\netcoreapp2.2\pipelines-dotnet-core.zip
+    archiveFile: pipelines-dotnet-core/bin/Release/netcoreapp2.2/pipelines-dotnet-core.zip
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'test connection 1'
