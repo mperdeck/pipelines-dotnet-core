@@ -20,7 +20,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(System.ArtifactsDirectory)'
+    arguments: '--configuration $(BuildConfiguration)'
     zipAfterPublish: false
 - task: CopyFiles@2
   displayName: 'Copy Console App to WebJob Location'
