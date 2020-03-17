@@ -28,7 +28,7 @@ steps:
     SourceFolder: WebJobsSDKSample\bin\Release\netcoreapp3.1
     TargetFolder: pipelines-dotnet-core\bin\Release\netcoreapp2.2\publish\App_Data\jobs\triggered\app
 - task: ArchiveFiles@2
-  displayName: 'Archive WebApp
+  displayName: 'Archive WebApp'
   inputs:
     rootFolderOrFile: pipelines-dotnet-core\bin\Release\netcoreapp2.2\publish
     includeRootFolder: false
