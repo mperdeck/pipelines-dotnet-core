@@ -2,6 +2,7 @@
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+# xxxxx
 
 trigger:
 - master
@@ -20,7 +21,18 @@ steps:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(System.ArtifactsDirectory)'
-    zipAfterPublish: True
+    zipAfterPublish: false
+- task: CopyFiles@2
+  displayName: 'Copy Console App to WebJob Location'
+  inputs:
+    SourceFolder: WebJobsSDKSample\bin\Release\netcoreapp3.1
+    TargetFolder: pipelines-dotnet-core\bin\Release\netcoreapp2.2\publish\App_Data\jobs\triggered\app
+- task: ArchiveFiles@2
+  displayName: 'Archive WebApp
+  inputs:
+    rootFolderOrFile: pipelines-dotnet-core\bin\Release\netcoreapp2.2\publish
+    includeRootFolder: false
+    archiveFile: pipelines-dotnet-core\bin\Release\netcoreapp2.2\pipelines-dotnet-core.zip
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'test connection 1'
